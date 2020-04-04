@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  /* display: flex; */
+  margin: 0;
   justify-content: center;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
@@ -18,8 +18,20 @@ body {
   /*
    * CSS image reference example.
    */
-  background-image: url('.//images/body_background.jpg');
-  background-size: cover;
+  background-image: url('.//images/body_background.png');
+}
+
+.warning {
+  margin-top: 270px;
+  width: 270px;
+  text-align: center;
+  color: darkgoldenrod;
+  border-radius: 5px;
+  /* background-image: url(.//images/warning.jpg); */
+  background-size: contain;
+  -webkit-box-shadow: 0px 0px 37px 6px rgb(250, 194, 9);
+  -moz-box-shadow: 0px 0px 37px 6px rgba(250, 194, 9);
+  box-shadow: 0px 0px 37px 6px rgba(250, 194, 9);
 }
 
 h1 {
@@ -38,6 +50,7 @@ h1 {
   padding: 15px;
   border-radius: 7px;
   outline: none;
+  font-family: 'Ubuntu', sans-serif;
   color: aqua;
   opacity: .6;
   background: url(`.//images/body_background.jpg`);
@@ -47,6 +60,7 @@ h1 {
 }
 
 .card {
+  font-family: 'Ubuntu', sans-serif;
   list-style: none;
   color: aqua;
 }
@@ -67,8 +81,10 @@ h1 {
 }
 
 .countries-list {
-  margin: 0 auto;
+  margin-left: 220px;
   padding: 10px;
+  list-style: inside;
+  opacity: .6;
 }
 
 .card__sidebox {
@@ -78,6 +94,64 @@ h1 {
 }
 
 .countries {
+  padding-left: 0;
   color: aqua;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 480px) {
+  body {
+    min-width: 360px;
+    margin: 0;
+  }
+
+  h1 {
+    margin-top: 100px;
+    font-size: 28px;
+  }
+
+  .search {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .card__sidebox {
+    width: 300px;
+  }
+
+  .countries-list {
+    margin-left: 0;
+    list-style: inside;
+    opacity: .6;
+  }
+}
+
+@media screen and (min-width:480px) and (max-width:1024px) {
+  body {
+    margin: 0;
+  }
+
+  h1 {
+    margin-top: 60px;
+    font-size: 36px;
+  }
+
+  .search {
+    font-size: 30px;
+    padding: 10px;
+  }
+
+  .card__sidebox {
+    width: 300px;
+  }
+
+  .countries-list {
+    margin-left: 60px;
+    list-style: inside;
+    opacity: .6;
+  }
+  .warning {
+    margin-top: 270px;
+  }
+}
+
