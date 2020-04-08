@@ -7,16 +7,14 @@ import template from './templates/countryTable.hbs';
 const input = document.querySelector( `.search` );
 const ul = document.querySelector( `.countries` );
 
-input.addEventListener( `input`, debounce( getCounties, 500 ) );
+input.addEventListener( `input`, debounce( getCounties, 1000 ) );
 
 function getCounties ( event ) {
-    let inputValue = event.target.value;
-    let baseUrl = `https://restcountries.eu/rest/v2/name/${inputValue}`;
+    const inputValue = event.target.value;
+    const baseUrl = `https://restcountries.eu/rest/v2/name/${inputValue}`;
     axios.get( baseUrl )
-        .then( function ( response ) {
-            return response.data;
-        } )
-        .then( data => {
+        .then( response => {
+            const data = response.data;
             ul.innerHTML = ``;
             if( data.length === 1 ) {
                 const markup = data.reduce( ( acc, el ) => `${acc}` + `${template( el )}`, `` );
@@ -39,6 +37,6 @@ function getCounties ( event ) {
         } )
         .catch( err => {
             ul.innerHTML = ``;
-            console.dir( `Error: ${err.response.data.status}. Data ${err.response.data.message}` );
+            console.dir( err );
         } )
 };
